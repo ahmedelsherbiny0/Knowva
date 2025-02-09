@@ -2,6 +2,7 @@ import { Icon } from "@iconify/react/dist/iconify.js";
 import Education from "../Components/Education";
 import LoginModal from "../Components/LoginModal";
 import SignupModal from "../Components/SignupModal";
+import React from "react";
 
 export default function Welcome() {
   return (
