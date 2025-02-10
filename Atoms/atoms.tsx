@@ -10,6 +10,7 @@ import { atom } from "jotai";
 // export const age = atom(localStorage.getItem("age") || "");
 // export const country = atom(localStorage.getItem("age") || "");
 
+
 // export const isLoggedIn = atom(localStorage.getItem("isLoggedIn") === "true" ? true : false);
 export const isLoggedIn = atom(true);
 
