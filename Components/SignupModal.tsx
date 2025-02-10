@@ -1,11 +1,10 @@
 import * as React from "react";
 import Box from "@mui/material/Box";
-import Typography from "@mui/material/Typography";
 import Modal from "@mui/material/Modal";
 import { Icon } from "@iconify/react";
 import Input from "./Input";
-import { countries } from "../src/Countries";
-import { useNavigate, Link } from "react-router-dom";
+import { languages } from "../src/Languages";
+import { useNavigate } from "react-router-dom";
 import { useAtom, useSetAtom } from "jotai";
 import {
   isLoggedIn,
@@ -14,17 +13,8 @@ import {
   password,
   gender,
   age,
-  country,
+  lang,
 } from "../Atoms/atoms";
-
-const style = {
-  position: "absolute",
-  top: "50%",
-  left: "50%",
-  transform: "translate(-50%, -50%)",
-};
-
-
 
 export default function SignupModal() {
   const setLoggedIn = useSetAtom(isLoggedIn);
@@ -33,7 +23,7 @@ export default function SignupModal() {
   const [Password, setPassword] = useAtom(password);
   const [Gender, setGender] = useAtom(gender);
   const [Age, setAge] = useAtom(age);
-  const [Country, setCountry] = useAtom(country);
+  const [Lang, setLang] = useAtom(lang);
 
   const [error, setError] = React.useState("");
   const [success, setSuccess] = React.useState("");
@@ -46,13 +36,13 @@ export default function SignupModal() {
   const handleLogin = async (e: { preventDefault: () => void }) => {
     e.preventDefault();
 
-    if (!Name || !Email || !Password || !Gender || !Age || !Country) {
+    if (!Name || !Email || !Password || !Gender || !Age || !lang) {
       setError("Please complete all fields.");
       return;
     }
 
     try {
-      const response = await fetch("//localhost", {
+      const response = await fetch("http://localhost:8000/api/register", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -61,14 +51,24 @@ export default function SignupModal() {
           name: Name,
           email: Email,
           password: Password,
-          gender: Gender,
           age: Age,
-          country: Country,
+          gender: Gender,
+          lang: Lang,
         }),
       });
+      console.log(
+        JSON.stringify({
+          name: Name,
+          email: Email,
+          password: Password,
+          age: Age,
+          gender: Gender,
+          lang: Lang,
+        })
+      );
 
       if (!response.ok) {
-        throw new Error("Signup failed. Please check your credentials.");
+        throw new Error("Signup failed. Please check yaaour credentials.");
       }
 
       const data = await response.json();
@@ -78,7 +78,7 @@ export default function SignupModal() {
       localStorage.setItem("email", Email);
       localStorage.setItem("gender", Gender);
       localStorage.setItem("age", Age);
-      localStorage.setItem("country", Country);
+      localStorage.setItem("lang", Lang);
       localStorage.setItem("isLoggedIn", "true");
 
       setSuccess("Login successful! Redirecting to Homepage...");
@@ -116,9 +116,6 @@ export default function SignupModal() {
             className="absolute top-6 right-6 w-6 h-6 text-[#003366] hover:opacity-90 transition cursor-pointer"
             onClick={handleClose}
           />
-          {/* <Typography id="modal-modal-title" variant="h6" component="h2">
-            Welcome
-          </Typography> */}
           <h2 className="text-4xl font-bold text-center mt-3 mb-3 text-gray-800">
             Signup
           </h2>
@@ -188,17 +185,17 @@ export default function SignupModal() {
             </div>
             <div className="mb-3 w-full">
               <h2 className="text-gray-700 font-medium mb-2">
-                Select Country:
+                Select Language:
               </h2>
               <select
                 className="w-full px-4 py-2 bg-gray-200 rounded-lg outline-gray-400 transition"
-                value={Country}
-                onChange={(e) => setCountry(e.target.value)}
+                value={Lang}
+                onChange={(e) => setLang(e.target.value)}
               >
                 <option value="" disabled>
-                  Select a country
+                  Select a language
                 </option>
-                {countries.map((c, index) => (
+                {languages.map((c, index) => (
                   <option key={index} value={c}>
                     {c}
                   </option>
@@ -215,8 +212,8 @@ export default function SignupModal() {
                     id="male"
                     type="radio"
                     name="gender"
-                    value="Male"
-                    checked={Gender === "Male"}
+                    value="male"
+                    checked={Gender === "male"}
                     onChange={(e) => setGender(e.target.value)}
                   />
                   <label
@@ -231,8 +228,8 @@ export default function SignupModal() {
                     id="female"
                     type="radio"
                     name="gender"
-                    value="Female"
-                    checked={Gender === "Female"}
+                    value="female"
+                    checked={Gender === "female"}
                     onChange={(e) => setGender(e.target.value)}
                   />
                   <label
