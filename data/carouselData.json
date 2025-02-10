@@ -1,0 +1,72 @@
+{
+  "grammer_slides": [
+    {
+      "src": "../src/assets/Module1Lesson1/image2.png",
+      "alt": "Image 2 for carousel"
+    },
+    {
+      "src": "../src/assets/Module1Lesson1/image3.png",
+      "alt": "Image 3 for carousel"
+    },
+    {
+      "src": "../src/assets/Module1Lesson1/image4.png",
+      "alt": "Image 4 for carousel"
+    },
+    {
+      "src": "../src/assets/Module1Lesson1/image1.png",
+      "alt": "Image 1 for carousel"
+    }
+  ],
+  "vocab_slides": [
+    {
+      "src": "../src/assets/Module1Lesson1/image7.png",
+      "alt": "Image 2 for carousel"
+    },
+    {
+      "src": "../src/assets/Module1Lesson1/image8.png",
+      "alt": "Image 3 for carousel"
+    },
+    {
+      "src": "../src/assets/Module1Lesson1/image10.png",
+      "alt": "Image 4 for carousel"
+    },
+    {
+      "src": "../src/assets/Module1Lesson1/image11.png",
+      "alt": "Image 1 for carousel"
+    },
+    {
+      "src": "../src/assets/Module1Lesson1/image12.png",
+      "alt": "Image 4 for carousel"
+    },
+    {
+      "src": "../src/assets/Module1Lesson1/image13.png",
+      "alt": "Image 4 for carousel"
+    },
+    {
+      "src": "../src/assets/Module1Lesson1/image14.png",
+      "alt": "Image 4 for carousel"
+    }
+  ],
+  "vocab_words": [
+    {
+      "src": "../src/assets/Module1Lesson1/vocab1.png",
+      "alt": "Image 2 for carousel"
+    },
+    {
+      "src": "../src/assets/Module1Lesson1/vocab2.png",
+      "alt": "Image 3 for carousel"
+    },
+    {
+      "src": "../src/assets/Module1Lesson1/vocab3.png",
+      "alt": "Image 4 for carousel"
+    },
+    {
+      "src": "../src/assets/Module1Lesson1/vocab4.png",
+      "alt": "Image 1 for carousel"
+    },
+    {
+      "src": "../src/assets/Module1Lesson1/vocab5.png",
+      "alt": "Image 4 for carousel"
+    }
+  ]
+}
