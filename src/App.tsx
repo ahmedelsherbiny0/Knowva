@@ -1,6 +1,6 @@
 import { BrowserRouter, Routes, Route, Outlet } from "react-router-dom";
-import { useAtom } from "jotai"; // ✅ Import useAtom
-import { isLoggedIn as isLoggedInAtom } from "../Atoms/atoms"; // ✅ Correct import for isLoggedIn
+import { useAtom } from "jotai";
+import { isLoggedIn as isLoggedInAtom } from "../Atoms/atoms";
 import NoPage from "../Components/NoPage";
 import VocabTest1 from "../Components/VocabTest1";
 import Home from "../Pages/Home";
@@ -12,7 +12,7 @@ import Welcome from "../Pages/Welcome";
 import "./App.css";
 
 function App() {
-	const [isLoggedIn] = useAtom(isLoggedInAtom); // ✅ Fetch value using useAtom()
+	const [isLoggedIn] = useAtom(isLoggedInAtom);
 
 	return (
 		<BrowserRouter>

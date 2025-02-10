@@ -225,6 +225,7 @@ function DemoPageContent({ pathname }: { pathname: string }) {
   );
 }
 
+
 function ToolbarActionsSearch() {
   return (
     <Stack direction="row">
